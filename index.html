@@ -20,6 +20,7 @@
                 min-height: 100%;
                 width: auto;
                 height: auto;   
+                z-index: -1;
             }
             #text {
                 font-family: Arial, Helvetica, sans-serif;
@@ -33,22 +34,18 @@
     </head>
     <body style="background-color:black">
         <h1 id="text">click anywhere to play</h1>
-        <p id="text">copyright placehold records 2023, all rights reserved</p>
+        <p id="text">copyright placehold records 2023, all rights reserved.</p>
 
         <div id="video-wrap">
-            <video loop id="video">
-                <source src="eyeloop.mov" playsinline>
+            <video playsinline loop id="video">
+                <source src="eyeloop.mp4" type="video/mp4">
             </video>
         </div>
-        <audio loop id="audio">
-            <source src="preview.mp3" type="audio/mpeg">
-        </audio>
     </body>
 
     <script>
         document.addEventListener("click", playPreview);
         function playPreview() {
-            document.getElementById("audio").play();
             document.getElementById("video").play();
             document.getElementById("video-wrap").style.display = "block"
             document.removeEventListener("click", musicPlay);

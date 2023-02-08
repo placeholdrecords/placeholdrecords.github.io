@@ -1,5 +1,8 @@
 <html>
     <head>
+        <title>
+            placehold records
+        </title>
         <style>
             #video-wrap {
                 position: fixed;
@@ -9,6 +12,13 @@
                 height: 100%;
                 display: none;
             }
+
+            #overlay {
+                position: relative;
+                display: none;
+                z-index: 1;
+            }
+
             #video {
                 position: absolute;
                 top: -9999px;
@@ -27,27 +37,54 @@
                 color: white;
                 margin: auto;
                 width: 50%;
-                padding: 250px;
+                padding: 100px;
                 text-align: center;
+                position: relative;
+            }
+
+            #logo {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 20%;
             }
         </style>
     </head>
     <body style="background-color:black">
-        <h1 id="text">click anywhere to play</h1>
-        <p id="text">copyright placehold records 2023, all rights reserved.</p>
+        <div id="landing">
+            <h1 id="text">click anywhere to play</h1>
+            <img src="logo.jpg" id="logo">
+            <p id="text">copyright placehold records 2023, all rights reserved.</p>
+        </div>
+
+        <div id="overlay">
+            <center>
+                <img src="title.gif" style="width: 80%;">
+                <a href="https://distrokid.com/hyperfollow/lunetta1/somethings-gotta-give" target="_blank" rel="noopener noreferrer">
+                    <img src="presave.gif" style="width: 80%;">
+                </a>
+            </center>
+        </div>
 
         <div id="video-wrap">
             <video playsinline loop id="video">
-                <source src="eyeloop.mp4" type="video/mp4">
+                <source src="eyeloop.mov" type="video/mp4">
             </video>
         </div>
+
+        <audio loop id="audio">
+            <source src="preview.mp3" type="audio/mpeg">
+        </audio>
     </body>
 
     <script>
         document.addEventListener("click", playPreview);
         function playPreview() {
             document.getElementById("video").play();
-            document.getElementById("video-wrap").style.display = "block"
+            document.getElementById("audio").play();
+            document.getElementById("video-wrap").style.display = "block";
+            document.getElementById("overlay").style.display = "block";
+            document.getElementById("landing").style.display = "none";
             document.removeEventListener("click", musicPlay);
         }
     </script>
